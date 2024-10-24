@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="433.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Employee.AddNewEmpController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="423.0" prefWidth="416.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="404.0" prefWidth="420.0">
+               <children>
+                  <AnchorPane layoutX="-21.0" layoutY="-19.0" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: #1b2b3a;">
+                     <children>
+                        <JFXTextField fx:id="txtEmpName" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="159.0" prefHeight="36.0" prefWidth="276.0" promptText="Name" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                           <font>
+                              <Font name="Cambria" size="14.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@../../../../Clothify/styles.css" />
+                              <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                           </stylesheets>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtEmpEmail" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="211.0" prefHeight="36.0" prefWidth="276.0" promptText="Email" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                           <font>
+                              <Font name="Cambria" size="14.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@../../../../Clothify/styles.css" />
+                              <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                           </stylesheets>
+                        </JFXTextField>
+                        <Text fill="WHITE" layoutX="67.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new Employee Details" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+                           <font>
+                              <Font name="Arial Narrow" size="21.0" />
+                           </font>
+                        </Text>
+                        <BorderPane layoutX="-1.0" prefHeight="86.0" prefWidth="450.0" style="-fx-background-color: #2f6496;">
+                           <center>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Employee" textAlignment="CENTER" wrappingWidth="309.22235107421875" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="Century" size="28.0" />
+                                 </font>
+                              </Text>
+                           </center>
+                        </BorderPane>
+                        <JFXButton fx:id="btnAdd" alignment="CENTER" buttonType="RAISED" layoutX="64.0" layoutY="387.0" onAction="#btnAddEmpOnAction" prefHeight="38.0" prefWidth="141.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Add Employee" textFill="WHITE">
+                           <font>
+                              <Font name="Book Antiqua" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="254.0" layoutY="387.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="121.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="Book Antiqua" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <Text fx:id="verifyMsg" fill="#f44747" layoutX="106.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.02239990234375">
+                           <font>
+                              <Font name="Arial Narrow" size="17.0" />
+                           </font>
+                        </Text>
+                        <JFXTextField fx:id="txtEmpCon" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="260.0" prefHeight="36.0" prefWidth="276.0" promptText="Contact No" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                           <font>
+                              <Font name="Cambria" size="14.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@../../../../Clothify/styles.css" />
+                              <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                           </stylesheets>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtEmpStatus" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="313.0" prefHeight="36.0" prefWidth="276.0" promptText="Status" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                           <font>
+                              <Font name="Cambria" size="14.0" />
+                           </font>
+                           <stylesheets>
+                              <URL value="@../../../../Clothify/styles.css" />
+                              <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                           </stylesheets>
+                        </JFXTextField>
+                        <Text fx:id="verifyMsg" fill="#ff3f3f" layoutX="133.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="176.42236328125">
+                           <font>
+                              <Font name="Arial Narrow" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

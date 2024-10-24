@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="462.0" prefWidth="847.0" style="-fx-background-color: #1b2b3a;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardController">
+   <children>
+      <ImageView fitHeight="468.0" fitWidth="482.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../SpringBoot/crud-new-UI/img/hmepage.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane layoutX="144.0" layoutY="14.0" prefHeight="39.0" prefWidth="141.0" style="-fx-border-color: white; -fx-border-radius: 10px;">
+         <right>
+            <ImageView fx:id="btnProf" fitHeight="39.0" fitWidth="36.0" onMouseClicked="#btnProfOnAction" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/user.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </right>
+         <center>
+            <Text fx:id="txtId" fill="WHITE" onMouseClicked="#btnProfOnAction" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke: white;" text="Tharindu123" textAlignment="CENTER" wrappingWidth="155.116455078125" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="19.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <JFXButton fx:id="btnProd" layoutX="508.0" layoutY="155.0" onAction="#btnProdOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Product Management" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnSup" layoutX="508.0" layoutY="212.0" onAction="#btnSupOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Supplier Management" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnEmp" layoutX="508.0" layoutY="269.0" onAction="#btnEmpOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Employee Management" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnOrder" layoutX="508.0" layoutY="325.0" onAction="#btnOrderOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Order Management" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnRep" layoutX="508.0" layoutY="383.0" onAction="#btnRepOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="View Reports" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Text fill="WHITE" layoutX="495.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an Option" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+         <font>
+            <Font name="Century" size="28.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="btnset" fitHeight="34.0" fitWidth="28.0" layoutX="14.0" layoutY="20.0" onDragDetected="#btnsetOnAction" onMouseClicked="#btnSetOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../SpringBoot/crud-new-UI/img/%5BCITYPNG.COM%5DSettings%20White%20Outline%20Icon%20Download%20PNG%20-%201500x1500.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="btnnotifi" fitHeight="28.0" fitWidth="28.0" layoutX="60.0" layoutY="20.0" onDragDetected="#btnNotOnAction" onMouseClicked="#btnNotOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../SpringBoot/crud-new-UI/img/%5BCITYPNG.COM%5DWhite%20Notification%20Bell%20Icon%20Transparent%20Background%20-%20700x700.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label fx:id="lblTime" layoutX="549.0" layoutY="17.0" text="time" textAlignment="CENTER" textFill="#98d9ff">
+         <font>
+            <Font name="Book Antiqua Bold" size="49.0" />
+         </font>
+      </Label>
+      <Text fill="#55a1c4" layoutX="86.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright(c) @2024 softIncSols   All rights reserved " textAlignment="CENTER" wrappingWidth="309.22235107421875">
+         <font>
+            <Font name="Century" size="10.0" />
+         </font>
+      </Text>
+      <BorderPane layoutX="199.0" layoutY="383.0" prefHeight="22.0" prefWidth="84.0" style="-fx-border-color: white; -fx-border-radius: 10px;">
+         <center>
+            <Text fx:id="btnlogOut" fill="#59b4e1" onMouseClicked="#btnLogOutOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" textAlignment="CENTER" wrappingWidth="65.222412109375" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Cambria" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+         </center>
+      </BorderPane>
+      <ImageView fx:id="btnaddnewUser" fitHeight="34.0" fitWidth="28.0" layoutX="439.0" layoutY="20.0" onMouseClicked="#btnAddNewUSer" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../SpringBoot/crud-new-UI/img/computer-icons-user-clip-art-png-download-add-icons-a4b19d9687d2ae786c9b21c0c3cb312f.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

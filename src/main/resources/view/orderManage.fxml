@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Order.OrderManageController">
+   <children>
+      <AnchorPane prefHeight="506.0" prefWidth="894.0" style="-fx-background-color: #1b2b3a;">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="97.0" layoutX="25.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/log.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="289.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Management" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+               <font>
+                  <Font name="Century" size="29.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="btnset" fitHeight="34.0" fitWidth="28.0" layoutX="789.0" layoutY="37.0" onDragDetected="#btnsetOnAction" onMouseClicked="#btnSetOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/%5BCITYPNG.COM%5DSettings%20White%20Outline%20Icon%20Download%20PNG%20-%201500x1500.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="btnnotifi" fitHeight="28.0" fitWidth="28.0" layoutX="748.0" layoutY="37.0" onMouseClicked="#btnNotOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/refresh-button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="btnnotifi1" fitHeight="28.0" fitWidth="28.0" layoutX="539.0" layoutY="35.0" onDragDetected="#btnNotOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnBack" fitHeight="28.0" fitWidth="34.0" layoutX="700.0" layoutY="37.0" onMouseClicked="#btnBackOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/arrow%20(2).png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <TableView fx:id="ordTable" layoutX="25.0" layoutY="108.0" prefHeight="374.0" prefWidth="522.0" style="-fx-background-color: #8bacff; -fx-background-radius: 10px;">
+               <columns>
+                  <TableColumn fx:id="coldOrdID" editable="false" prefWidth="72.00000190734863" text="Order ID" />
+                  <TableColumn fx:id="colOrdDate" editable="false" prefWidth="132.80001831054688" text="Date" />
+                  <TableColumn fx:id="colOrdTime" editable="false" prefWidth="98.39997863769531" text="Time" />
+                  <TableColumn fx:id="colOrdDis" editable="false" prefWidth="100.00006103515625" text="Discount" />
+                  <TableColumn fx:id="colOrdTot" editable="false" prefWidth="116.79998779296875" text="Total" />
+               </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TableView>
+            <Pane layoutX="568.0" layoutY="108.0" prefHeight="246.0" prefWidth="291.0" style="-fx-background-color: #26435b; -fx-border-color: white; -fx-border-radius: 7px; -fx-border-width: px;">
+               <children>
+                  <JFXTextField fx:id="searchbar" alignment="CENTER" focusColor="#98b4ff" layoutX="15.0" layoutY="19.0" prefHeight="35.0" prefWidth="244.0" promptText="Search By Name or ID" style="-fx-background-color: #36509e; -fx-border-color: white; -fx-border-radius: 10px;" styleClass="custom-textfield">
+                     <stylesheets>
+                        <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                        <URL value="@../../../../Clothify/styles.css" />
+                     </stylesheets>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fx:id="btnSearch" fitHeight="26.0" fitWidth="22.0" layoutX="226.0" layoutY="26.0" onMouseClicked="#btnSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../SpringBoot/crud-new-UI/img/google-search-android-search-box-search-engine-optimization-loupe-8af771eb26d9f513de3d24411cd0758f.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fx:id="txtverifymsg" fill="#f24343" layoutX="76.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="." textAlignment="CENTER" wrappingWidth="121.22238159179688">
+                     <font>
+                        <Font name="Century" size="13.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="txtOrderDate" alignment="CENTER" editable="false" focusColor="#f7f7f7" layoutX="20.0" layoutY="81.0" prefHeight="28.0" prefWidth="107.0" promptText="Date" style="-fx-background-color: #8bacff; -fx-border-color: white; -fx-border-radius: 5px;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtOrderTime" alignment="CENTER" editable="false" focusColor="WHITE" layoutX="152.0" layoutY="81.0" prefHeight="28.0" prefWidth="101.0" promptText="Time" style="-fx-background-color: #8bacff; -fx-border-color: white; -fx-border-radius: 5px;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtOrderId" alignment="CENTER" editable="false" focusColor="WHITE" layoutX="20.0" layoutY="117.0" prefHeight="28.0" prefWidth="228.0" promptText="Order ID" style="-fx-background-color: #8bacff; -fx-border-color: white; -fx-border-radius: 5px;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtOrderTot" alignment="CENTER" editable="false" focusColor="WHITE" layoutX="20.0" layoutY="156.0" prefHeight="28.0" prefWidth="228.0" promptText="Total" style="-fx-background-color: #8bacff; -fx-border-color: white; -fx-border-radius: 5px;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtOrderDis" alignment="CENTER" editable="false" focusColor="WHITE" layoutX="20.0" layoutY="198.0" prefHeight="28.0" prefWidth="107.0" promptText="Discount" style="-fx-background-color: #8bacff; -fx-border-color: white; -fx-border-radius: 5px;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fx:id="btnDel" fitHeight="28.0" fitWidth="28.0" layoutX="151.0" layoutY="198.0" onMouseClicked="#btnDelOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../SpringBoot/crud-new-UI/img/b6fdll6s243856h1r7kgrv00bh-51b63d2adbe324a8ecd3aa0e15d9560e.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="btnUpd" fitHeight="35.0" fitWidth="37.0" layoutX="202.0" layoutY="195.0" onMouseClicked="#btnUpdOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../SpringBoot/crud-new-UI/img/hh8anqr7mnkkqf6u61ppfb4muv-d936228c571482abaf4e0af017092b8f.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fx:id="btnProf" fitHeight="35.0" fitWidth="35.0" layoutX="832.0" layoutY="31.0" onDragDetected="#btnProfOnAction" onMouseClicked="#btnProfOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../SpringBoot/crud-new-UI/img/user.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <JFXButton fx:id="btnAddNew" layoutX="572.0" layoutY="380.0" onAction="#btnAddNewOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Add New Order" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnViewRep" layoutX="572.0" layoutY="436.0" onAction="#btnViewRepOnAction" prefHeight="39.0" prefWidth="284.0" style="-fx-background-color: #3e5384; -fx-border-radius: 20px;" text="Print Order Report" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

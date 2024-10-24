@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="364.0" prefWidth="433.0" style="-fx-background-color: #1b2b3a;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ForgetPWController">
+   <children>
+      <JFXTextField fx:id="txtuserName" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="159.0" prefHeight="36.0" prefWidth="276.0" promptText="User Name" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../Clothify/styles.css" />
+            <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+         </stylesheets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtEmail" alignment="CENTER" focusColor="#1c466e" layoutX="80.0" layoutY="214.0" prefHeight="36.0" prefWidth="276.0" promptText="Email" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font>
+         <stylesheets>
+            <URL value="@../../../../Clothify/styles.css" />
+            <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+         </stylesheets>
+      </JFXTextField>
+      <Text fill="WHITE" layoutX="67.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your Username &amp; Email" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+         <font>
+            <Font name="Arial Narrow" size="21.0" />
+         </font>
+      </Text>
+      <BorderPane layoutX="-1.0" prefHeight="86.0" prefWidth="434.0" style="-fx-background-color: #2f6496;">
+         <center>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password ?" textAlignment="RIGHT" wrappingWidth="309.22235107421875" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Century" size="28.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <JFXButton fx:id="btnVerify" alignment="CENTER" buttonType="RAISED" layoutX="61.0" layoutY="283.0" prefHeight="38.0" prefWidth="132.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Verify Account" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="254.0" layoutY="283.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="121.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="verifyMsg" fill="#f44747" layoutX="106.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.02239990234375">
+         <font>
+            <Font name="Arial Narrow" size="17.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

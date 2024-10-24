@@ -1,0 +1,44 @@
+.custom-textfield {
+    -fx-prompt-text-fill: #c6e4ff; /* Set prompt text color to white */
+    -fx-text-fill: #c6e4ff;
+}
+/* Table Background */
+.table {
+    -fx-background-color: #f0f8ff; /* Light background color */
+    -fx-border-color: #003366; /* Border color */
+    -fx-border-width: 2px; /* Border width */
+}
+
+/* Table Header Styles */
+.table-header {
+    -fx-background-color: #003366; /* Dark blue header */
+    -fx-text-fill: white; /* White text color for header */
+}
+
+/* Table Cell Styles */
+.table-cell {
+    -fx-background-color: #e6f7ff; /* Light blue for cells */
+    -fx-padding: 10; /* Padding inside the cells */
+    -fx-font-size: 14px; /* Font size */
+}
+
+.table-cell:hover {
+    -fx-background-color: #cceeff; /* Slightly darker blue on hover */
+}
+
+.table-cell:selected {
+    -fx-background-color: #99ccff; /* Highlighted selected row color */
+}
+
+/* No Content Message Styles */
+.no-content {
+    -fx-text-fill: #ff3333; /* Red color for the message */
+    -fx-font-size: 18px; /* Larger font size */
+    -fx-alignment: CENTER; /* Center the text */
+}
+
+/* Borders and Lines */
+.table-row-cell {
+    -fx-border-color: #dcdcdc; /* Border color for rows */
+    -fx-border-width: 0 0 1px 0; /* Bottom border for rows */
+}
