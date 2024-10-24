@@ -1,6 +1,7 @@
 package controller.Product;
 
 import db.DBConnection;
+import javafx.collections.ObservableList;
 import model.Employee;
 import model.Product;
 import utilDBOPT.CRUDUtil;
@@ -100,4 +101,5 @@ public class ProductController implements ProductService{
             throw new RuntimeException(e);
         }
     }
+
 }

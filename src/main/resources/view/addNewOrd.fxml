@@ -3,6 +3,11 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -12,9 +17,9 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="404.0" prefWidth="420.0">
          <children>
-            <AnchorPane layoutX="-21.0" layoutY="-19.0" prefHeight="441.0" prefWidth="450.0" style="-fx-background-color: #1b2b3a;">
+            <AnchorPane layoutX="-21.0" layoutY="-19.0" prefHeight="535.0" prefWidth="698.0" style="-fx-background-color: #1b2b3a;">
                <children>
-                  <JFXTextField fx:id="txtOrdDate" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="159.0" prefHeight="36.0" prefWidth="276.0" promptText="Date" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                  <JFXTextField fx:id="txtProPrice" alignment="CENTER" editable="false" focusColor="#1c466e" layoutX="479.0" layoutY="170.0" prefHeight="36.0" prefWidth="176.0" promptText="Unit Price" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font>
@@ -23,7 +28,7 @@
                         <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
                      </stylesheets>
                   </JFXTextField>
-                  <JFXTextField fx:id="txtOrdTime" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="211.0" prefHeight="36.0" prefWidth="276.0" promptText="Time" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                  <JFXTextField fx:id="txtProName" alignment="CENTER" editable="false" focusColor="#1c466e" layoutX="261.0" layoutY="170.0" prefHeight="36.0" prefWidth="176.0" promptText="Product Name" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#8ec8ff">
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font>
@@ -32,28 +37,28 @@
                         <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
                      </stylesheets>
                   </JFXTextField>
-                  <Text fill="WHITE" layoutX="67.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter new Order Details" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+                  <Text fx:id="lblDate" fill="WHITE" layoutX="336.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.39999999999986">
                      <font>
                         <Font name="Arial Narrow" size="21.0" />
                      </font>
                   </Text>
-                  <BorderPane layoutX="-1.0" prefHeight="86.0" prefWidth="450.0" style="-fx-background-color: #2f6496;">
+                  <BorderPane prefHeight="86.0" prefWidth="697.0" style="-fx-background-color: #2f6496;">
                      <center>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Order" textAlignment="CENTER" wrappingWidth="309.22235107421875" BorderPane.alignment="CENTER">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Place Order" textAlignment="CENTER" wrappingWidth="309.22235107421875" BorderPane.alignment="CENTER">
                            <font>
                               <Font name="Century" size="28.0" />
                            </font>
                         </Text>
                      </center>
                   </BorderPane>
-                  <JFXButton fx:id="btnAdd" alignment="CENTER" buttonType="RAISED" layoutX="24.0" layoutY="389.0" onAction="#btnAddOrderOnAction" prefHeight="38.0" prefWidth="122.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Add Order" textFill="WHITE">
+                  <JFXButton fx:id="btnAdd" alignment="CENTER" buttonType="RAISED" layoutX="481.0" layoutY="462.0" onAction="#btnPlaceOrderOnAction" prefHeight="38.0" prefWidth="110.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Place Order" textFill="WHITE">
                      <font>
                         <Font name="Book Antiqua" size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="302.0" layoutY="387.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="121.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
+                  <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="606.0" layoutY="462.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="68.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
                      <font>
-                        <Font name="Book Antiqua" size="16.0" />
+                        <Font name="Book Antiqua" size="13.0" />
                      </font>
                   </JFXButton>
                   <Text fx:id="verifyMsg" fill="#f44747" layoutX="106.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.02239990234375">
@@ -61,7 +66,7 @@
                         <Font name="Arial Narrow" size="17.0" />
                      </font>
                   </Text>
-                  <JFXTextField fx:id="txtOrdDis" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="260.0" prefHeight="36.0" prefWidth="276.0" promptText="Discount" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                  <JFXTextField fx:id="txtProQty" alignment="CENTER" focusColor="#1c466e" layoutX="273.0" layoutY="242.0" prefHeight="36.0" prefWidth="152.0" promptText="Qty" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#8ec8ff">
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font>
@@ -70,7 +75,7 @@
                         <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
                      </stylesheets>
                   </JFXTextField>
-                  <JFXTextField fx:id="txtOrdTot" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="313.0" prefHeight="36.0" prefWidth="276.0" promptText="Total" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
+                  <JFXTextField fx:id="txtSupID" alignment="CENTER" editable="false" focusColor="#1c466e" layoutX="58.0" layoutY="242.0" prefHeight="36.0" prefWidth="159.0" promptText="Supplier ID" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#8ec8ff">
                      <font>
                         <Font name="Cambria" size="14.0" />
                      </font>
@@ -79,12 +84,73 @@
                         <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
                      </stylesheets>
                   </JFXTextField>
-                  <JFXButton fx:id="btnNewItem" alignment="CENTER" buttonType="RAISED" layoutX="159.0" layoutY="390.0" onAction="#btnAddSupOnAction" prefHeight="36.0" prefWidth="132.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Add Supplier" textFill="WHITE">
+                  <JFXButton fx:id="btnNewItem" alignment="CENTER" buttonType="RAISED" layoutX="492.0" layoutY="250.0" onAction="#btnAddCartOnAction" prefHeight="36.0" prefWidth="152.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #51a2ff; -fx-background-radius: 10px;" text="Add to Cart">
                      <font>
                         <Font name="Book Antiqua" size="16.0" />
                      </font>
                   </JFXButton>
                   <Text fx:id="verifyMsg" fill="#ff3f3f" layoutX="137.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="176.42236328125">
+                     <font>
+                        <Font name="Arial Narrow" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="lblTime" fill="WHITE" layoutX="564.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="109.60000000000014">
+                     <font>
+                        <Font name="Arial Narrow" size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="47.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID - " textAlignment="CENTER" wrappingWidth="82.82232666015625">
+                     <font>
+                        <Font name="Arial Narrow" size="21.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="tblCart" layoutX="40.0" layoutY="311.0" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: #8bacff; -fx-background-radius: 10px;">
+                    <columns>
+                      <TableColumn fx:id="colProId" prefWidth="69.60000991821289" text="Product ID" />
+                      <TableColumn fx:id="colProName" prefWidth="106.39999389648438" text="Name" />
+                        <TableColumn fx:id="colQty" prefWidth="73.60002136230469" text="Qty" />
+                        <TableColumn fx:id="colPrice" prefWidth="92.0" text="Unit Price" />
+                        <TableColumn fx:id="colTotal" prefWidth="84.0" text="Total" />
+                    </columns>
+                  </TableView>
+                  <Text fx:id="order_id" fill="WHITE" layoutX="137.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O0001" textAlignment="CENTER" wrappingWidth="56.42236328125">
+                     <font>
+                        <Font name="Arial Narrow" size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="285.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date - " textAlignment="CENTER" wrappingWidth="56.42236328125">
+                     <font>
+                        <Font name="Arial Narrow" size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="511.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time - " textAlignment="CENTER" wrappingWidth="56.42236328125">
+                     <font>
+                        <Font name="Arial Narrow" size="21.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="txtProID" alignment="CENTER" focusColor="#1c466e" layoutX="49.0" layoutY="170.0" prefHeight="36.0" prefWidth="176.0" promptText="Product ID" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#8ec8ff">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                     <stylesheets>
+                        <URL value="@../../../../Clothify/styles.css" />
+                        <URL value="@../../../../../SpringBoot/crud-new-UI/img/styles.css" />
+                     </stylesheets>
+                  </JFXTextField>
+                  <ImageView fx:id="btnSearch" fitHeight="26.0" fitWidth="22.0" layoutX="201.0" layoutY="177.0" onMouseClicked="#btnSearchOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../SpringBoot/crud-new-UI/img/google-search-android-search-box-search-engine-optimization-loupe-8af771eb26d9f513de3d24411cd0758f.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fx:id="txtmsg" fill="#ff5b5b" layoutX="88.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="134.0223388671875">
+                     <font>
+                        <Font name="Arial Narrow" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtmsg1" fill="#ff5b5b" layoutX="529.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="134.0223388671875">
                      <font>
                         <Font name="Arial Narrow" size="14.0" />
                      </font>

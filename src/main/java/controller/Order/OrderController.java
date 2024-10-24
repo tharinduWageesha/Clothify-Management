@@ -68,7 +68,7 @@ public class OrderController implements OrderService {
 
     @Override
     public String getLastOrdID() {
-        String sql = "SELECT Order_ID FROM Order ORDER BY Order_ID DESC LIMIT 1";
+        String sql = "SELECT Order_ID FROM Orders ORDER BY Order_ID DESC LIMIT 1";
         Connection connection = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ClothifyManager", "root", "12345");

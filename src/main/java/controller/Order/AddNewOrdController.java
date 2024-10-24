@@ -1,24 +1,39 @@
 package controller.Order;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import controller.Product.ProductController;
+import controller.Product.ProductService;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Order;
+import javafx.util.Duration;
+import model.Product;
 
-import java.io.IOException;
-import java.time.LocalDate;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class AddNewOrdController {
+public class AddNewOrdController implements Initializable {
 
-    OrderService service = new OrderController();
+    public Text txtmsg;
+    ProductService service = new ProductController();
+    public Text lblDate;
+    public JFXTextField txtProID;
+    @FXML
+    private Text lblTime;
     @FXML
     private JFXButton btnAdd;
 
@@ -29,62 +44,53 @@ public class AddNewOrdController {
     private JFXButton btnNewItem;
 
     @FXML
-    private JFXTextField txtOrdDate;
+    private JFXComboBox<?> cmdProID;
 
     @FXML
-    private JFXTextField txtOrdDis;
+    private TableColumn<?, ?> colPrice;
 
     @FXML
-    private JFXTextField txtOrdTime;
+    private TableColumn<?, ?> colProId;
 
     @FXML
-    private JFXTextField txtOrdTot;
+    private TableColumn<?, ?> colProName;
+
+    @FXML
+    private TableColumn<?, ?> colQty;
+
+    @FXML
+    private TableColumn<?, ?> colTotal;
+
+    @FXML
+    private Text date;
+
+    @FXML
+    private Text order_id;
+
+    @FXML
+    private TableView<?> tblCart;
+
+    @FXML
+    private Text time;
+
+    @FXML
+    private JFXTextField txtProName;
+
+    @FXML
+    private JFXTextField txtProPrice;
+
+    @FXML
+    private JFXTextField txtProQty;
+
+    @FXML
+    private JFXTextField txtSupID;
 
     @FXML
     private Text verifyMsg;
 
     @FXML
-    void btnAddOrderOnAction(ActionEvent event) {
-        if(txtOrdTot.getText().equals("") || txtOrdDis.getText().equals("") || txtOrdTime.getText().equals("") || txtOrdDate.getText().equals("")){
-            verifyMsg.setText("Please fill all the fields.");
-        }else {
-            String ordID = generateOrdID();;
-            LocalDate ordDate = LocalDate.parse(txtOrdDate.getText());
-            LocalTime ordTime = LocalTime.parse(txtOrdTime.getText());
-            Double ordDis = Double.valueOf(txtOrdDis.getText());
-            Double ordTot = Double.valueOf(txtOrdTot.getText());
+    void btnAddCartOnAction(ActionEvent event) {
 
-            Order order = new Order(ordID, ordDate, ordDis, ordTot, ordTime);
-            System.out.println(order);
-            boolean isSucces = service.addOrder(order);
-            if (isSucces) {
-                new Alert(Alert.AlertType.INFORMATION, "Order Added Succesfully!").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Error Adding Order!").show();
-            }
-        }
-    }
-
-    private String generateOrdID() {
-        String lastID = service.getLastOrdID();
-        if (lastID != null) {
-            int numericPart = Integer.parseInt(lastID.substring(1));
-            numericPart++;
-            return "OR" + String.format("%04d", numericPart);
-        } else {
-            return "OR0001";
-        }
-    }
-
-    @FXML
-    void btnAddSupOnAction(ActionEvent event) {
-        Stage stage1 = new Stage();
-        try {
-            stage1.setScene(new Scene(FXMLLoader.load(getClass().getResource("../../view/addnewSup.fxml"))));
-            stage1.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @FXML
@@ -93,4 +99,47 @@ public class AddNewOrdController {
         stage.close();
     }
 
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadDateAndTime();
+    }
+
+    private void loadDateAndTime(){
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
+        String crntdate = format.format(date);
+        lblDate.setText(crntdate);
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            LocalTime now = LocalTime.now();
+            lblTime.setText(now.getHour() + " : " + now.getMinute() + " : " + now.getSecond());
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
+    }
+
+    public void btnSearchOnAction(MouseEvent event) {
+        Product product = service.serachProduct(txtProID.getText());
+        if(product == null){
+            txtmsg.setText("Invalid Product ID !");
+        }else{
+            setTextToValues(product);
+            txtmsg.setText(null);
+        }
+    }
+
+    private void setTextToValues(Product product) {
+        txtProName.setText(product.getProduct_Name());
+        txtProPrice.setText(String.valueOf(product.getPrice()));
+        txtProQty.setText(String.valueOf(product.getQty()));
+        txtSupID.setText(product.getSupplier_ID());
+    }
 }

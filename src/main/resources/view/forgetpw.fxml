@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="364.0" prefWidth="433.0" style="-fx-background-color: #1b2b3a;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ForgetPWController">
+<AnchorPane prefHeight="377.0" prefWidth="433.0" style="-fx-background-color: #1b2b3a;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ForgetPWController">
    <children>
       <JFXTextField fx:id="txtuserName" alignment="CENTER" focusColor="#1c466e" layoutX="78.0" layoutY="159.0" prefHeight="36.0" prefWidth="276.0" promptText="User Name" style="-fx-background-color: #4b5966; -fx-border-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="custom-textfield" unFocusColor="#2d4863">
          <font>
@@ -42,12 +42,12 @@
             </Text>
          </center>
       </BorderPane>
-      <JFXButton fx:id="btnVerify" alignment="CENTER" buttonType="RAISED" layoutX="61.0" layoutY="283.0" prefHeight="38.0" prefWidth="132.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Verify Account" textFill="WHITE">
+      <JFXButton fx:id="btnVerify" alignment="CENTER" buttonType="RAISED" layoutX="61.0" layoutY="292.0" onAction="#btnGetPwOnAction" prefHeight="38.0" prefWidth="132.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Get Password" textFill="WHITE">
          <font>
             <Font name="Book Antiqua" size="16.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="254.0" layoutY="283.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="121.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
+      <JFXButton fx:id="btnCancel" alignment="CENTER" buttonType="RAISED" layoutX="254.0" layoutY="292.0" onAction="#btnExitOnAction" prefHeight="38.0" prefWidth="121.0" style="-fx-border-color: #4a5a69; -fx-border-radius: 10px; -fx-background-color: #05758d; -fx-background-radius: 10px;" text="Cancel" textFill="WHITE">
          <font>
             <Font name="Book Antiqua" size="16.0" />
          </font>
@@ -55,6 +55,16 @@
       <Text fx:id="verifyMsg" fill="#f44747" layoutX="106.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.02239990234375">
          <font>
             <Font name="Arial Narrow" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblDone" fill="#6cd3ff" layoutX="62.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblInvalidMsg" fill="#ff7070" layoutX="61.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="309.22235107421875">
+         <font>
+            <Font name="Arial Narrow" size="14.0" />
          </font>
       </Text>
    </children>
