@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Supplier;
+import dto.Supplier;
 
 import java.io.IOException;
 

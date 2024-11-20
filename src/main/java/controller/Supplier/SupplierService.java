@@ -1,6 +1,6 @@
 package controller.Supplier;
 
-import model.Supplier;
+import dto.Supplier;
 
 public interface SupplierService {
     boolean addSupplier(Supplier supplier);

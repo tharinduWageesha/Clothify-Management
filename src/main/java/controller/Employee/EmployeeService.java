@@ -1,6 +1,6 @@
 package controller.Employee;
 
-import model.Employee;
+import dto.Employee;
 
 public interface EmployeeService {
     boolean addEmployee(Employee employee);

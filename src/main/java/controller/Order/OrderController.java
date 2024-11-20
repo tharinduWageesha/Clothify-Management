@@ -1,8 +1,8 @@
 package controller.Order;
 
+import controller.Product.ProductController;
 import db.DBConnection;
-import model.Order;
-import model.Product;
+import dto.Order;
 import utilDBOPT.CRUDUtil;
 
 import java.sql.*;
@@ -81,4 +81,40 @@ public class OrderController implements OrderService {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean placeOrder(Order order) throws SQLException {
+        Connection connection =  DBConnection.getInstance().getConnection();
+        try {
+            String sql = "Insert into Orders(Order_Id,Date,Time,Discount,Cost) Values (?,?,?,?,?);";
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(sql);
+            pstm.setObject(1,order.getOrder_ID());
+            pstm.setObject(2,order.getDate());
+            pstm.setObject(3,order.getTime());
+            pstm.setObject(4,order.getDiscount());
+            pstm.setObject(5,order.getCost());
+            boolean isOrderPlaced = pstm.executeUpdate() > 0;
+            if(isOrderPlaced){
+                boolean isOrderDetailAdd = new OrderDetailController().addOrderDetail(order.getOrderDetails());
+                if(isOrderDetailAdd){
+                    boolean isStockUpdate = new ProductController().updateStock(order.getOrderDetails());
+                    if(isStockUpdate){
+                        connection.commit();
+                        return isStockUpdate;
+                    }
+                }
+            }
+            connection.rollback();
+            return false;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }   
 }

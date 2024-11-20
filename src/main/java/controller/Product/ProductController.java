@@ -1,14 +1,14 @@
 package controller.Product;
 
 import db.DBConnection;
-import javafx.collections.ObservableList;
-import model.Employee;
-import model.Product;
+import dto.OrderDetails;
+import dto.Product;
 import utilDBOPT.CRUDUtil;
 
 import java.sql.*;
+import java.util.List;
 
-public class ProductController implements ProductService{
+public class ProductController implements ProductService {
 
     @Override
     public boolean addProduct(Product product) {
@@ -16,13 +16,13 @@ public class ProductController implements ProductService{
             String SQL = "Insert into Product Values(?,?,?,?,?)";
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ClothifyManager", "root", "12345");
             PreparedStatement pstm = connection.prepareStatement(SQL);
-            pstm.setObject(1,product.getProduct_ID());
-            pstm.setObject(2,product.getProduct_Name());
-            pstm.setObject(3,product.getPrice());
-            pstm.setObject(4,product.getQty());
-            pstm.setObject(5,product.getSupplier_ID());
+            pstm.setObject(1, product.getProduct_ID());
+            pstm.setObject(2, product.getProduct_Name());
+            pstm.setObject(3, product.getPrice());
+            pstm.setObject(4, product.getQty());
+            pstm.setObject(5, product.getSupplier_ID());
 
-            boolean isSucces = pstm.executeUpdate()>0;
+            boolean isSucces = pstm.executeUpdate() > 0;
             return isSucces;
 
         } catch (SQLException e) {
@@ -34,10 +34,10 @@ public class ProductController implements ProductService{
 
     @Override
     public boolean deleteProduct(String id) {
-        String sql="Delete from product where Product_ID='"+id+"';";
+        String sql = "Delete from product where Product_ID='" + id + "';";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            boolean isDeleted = connection.createStatement().executeUpdate(sql)>0;
+            boolean isDeleted = connection.createStatement().executeUpdate(sql) > 0;
             return isDeleted;
 
         } catch (SQLException e) {
@@ -55,7 +55,7 @@ public class ProductController implements ProductService{
             preparedStatement.setDouble(2, product.getPrice());
             preparedStatement.setInt(3, product.getQty());
             preparedStatement.setString(4, product.getSupplier_ID());
-            preparedStatement.setString(5,product.getProduct_ID());
+            preparedStatement.setString(5, product.getProduct_ID());
 
             boolean isUpdated = preparedStatement.executeUpdate() > 0;
             return isUpdated;
@@ -101,5 +101,38 @@ public class ProductController implements ProductService{
             throw new RuntimeException(e);
         }
     }
+
+    public boolean updateStock(List<OrderDetails> orderDetails) {
+        boolean isUpdateStock;
+        for (OrderDetails orderDetail : orderDetails) {
+            isUpdateStock = updateStock(orderDetail);
+            if(!isUpdateStock){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean updateStock(OrderDetails orderDetails) {
+        String sql = "UPDATE Product SET Qty = Qty - ? WHERE Product_ID = ?";
+        try {
+            System.out.println("Updating stock for Product_ID: " + orderDetails.getProductID() +
+                    ", Quantity to subtract: " + orderDetails.getQty());
+
+            boolean isUpdated = CRUDUtil.execute(sql, orderDetails.getQty(), orderDetails.getProductID());
+
+            if (isUpdated) {
+                System.out.println("Stock updated successfully.");
+            } else {
+                System.out.println("Failed to update stock. Product may not exist or insufficient stock.");
+            }
+
+            return isUpdated;
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+            throw new RuntimeException("Error updating stock for product ID: " + orderDetails.getProductID(), e);
+        }
+    }
+
 
 }

@@ -8,7 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.User;
+import dto.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

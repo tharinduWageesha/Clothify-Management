@@ -1,8 +1,7 @@
 package controller.Supplier;
 
 import db.DBConnection;
-import model.Employee;
-import model.Supplier;
+import dto.Supplier;
 import utilDBOPT.CRUDUtil;
 
 import java.sql.*;

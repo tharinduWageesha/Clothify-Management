@@ -8,7 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Employee;
+import dto.Employee;
 
 public class AddNewEmpController {
     EmployeeService service = new EmployeeController();

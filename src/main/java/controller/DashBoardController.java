@@ -115,7 +115,19 @@ public class DashBoardController {
 
     @FXML
     void btnRepOnAction(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setIconified(true); // Minimize the current window
 
+        Stage supplierStage = new Stage();
+        try {
+            supplierStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/viewReport.fxml"))));
+            supplierStage.show();
+            supplierStage.setOnHiding(e -> {
+                currentStage.setIconified(false); // Restore (maximize) the main window
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

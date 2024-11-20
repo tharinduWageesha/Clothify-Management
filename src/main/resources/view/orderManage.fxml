@@ -62,7 +62,7 @@
                   <TableColumn fx:id="colOrdDate" editable="false" prefWidth="132.80001831054688" text="Date" />
                   <TableColumn fx:id="colOrdTime" editable="false" prefWidth="98.39997863769531" text="Time" />
                   <TableColumn fx:id="colOrdDis" editable="false" prefWidth="100.00006103515625" text="Discount" />
-                  <TableColumn fx:id="colOrdTot" editable="false" prefWidth="116.79998779296875" text="Total" />
+                  <TableColumn fx:id="colOrdTot" editable="false" prefWidth="116.79998779296875" text="Bill" />
                </columns>
                <cursor>
                   <Cursor fx:constant="HAND" />

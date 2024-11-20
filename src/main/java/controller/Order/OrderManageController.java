@@ -1,5 +1,9 @@
 package controller.Order;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import db.DBConnection;
@@ -18,10 +22,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.Order;
-import model.Product;
+import dto.Order;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -108,8 +114,8 @@ public class OrderManageController implements Initializable {
         txtOrderId.setText(newValue.getOrder_ID());
         txtOrderDate.setText(String.valueOf(newValue.getDate()));
         txtOrderTime.setText(String.valueOf(newValue.getTime()));
-        txtOrderDis.setText(String.valueOf(newValue.getDiscount()));
-        txtOrderTot.setText(String.valueOf(newValue.getCost()));
+        txtOrderDis.setText(String.valueOf(newValue.getDiscount())+"%");
+        txtOrderTot.setText("Rs "+String.valueOf(newValue.getCost()));
     }
 
     public void setDataToTable(){
@@ -214,8 +220,60 @@ public class OrderManageController implements Initializable {
     }
 
     @FXML
-    void btnViewRepOnAction(ActionEvent event) {
+    public void btnViewRepOnAction(ActionEvent event) {
+        // File chooser to specify PDF save location
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        java.io.File file = fileChooser.showSaveDialog(null);
 
+        if (file != null) {
+            // Create a new document
+            Document document = new Document();
+
+            try {
+                // Initialize PDF writer
+                PdfWriter.getInstance(document, new FileOutputStream(file));
+                document.open();
+
+                // Add document title
+                Font titleFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+                Paragraph title = new Paragraph("Order Report", titleFont);
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                document.add(new Paragraph(" "));
+
+                // Create table with appropriate column count
+                PdfPTable pdfTable = new PdfPTable(ordTable.getColumns().size());
+                pdfTable.setWidthPercentage(100);
+
+                // Add table headers
+                ordTable.getColumns().forEach(column -> {
+                    PdfPCell headerCell = new PdfPCell(new Phrase(column.getText()));
+                    headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    pdfTable.addCell(headerCell);
+                });
+
+                // Add table rows
+                ordTable.getItems().forEach(item -> {
+                    ordTable.getColumns().forEach(column -> {
+                        Object cellData = column.getCellObservableValue(item).getValue();
+                        pdfTable.addCell(cellData != null ? cellData.toString() : "");
+                    });
+                });
+
+                // Add table to document
+                document.add(pdfTable);
+
+                // Confirmation message
+                new Alert(Alert.AlertType.INFORMATION, "PDF Generated Succesfully").show();
+
+            } catch (FileNotFoundException | DocumentException e) {
+                System.err.println("Error generating PDF: " + e.getMessage());
+            } finally {
+                document.close();
+            }
+        }
     }
 
     @FXML

@@ -1,7 +1,7 @@
 package controller.Employee;
 
 import db.DBConnection;
-import model.Employee;
+import dto.Employee;
 import utilDBOPT.CRUDUtil;
 
 import java.sql.*;

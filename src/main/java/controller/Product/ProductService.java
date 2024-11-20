@@ -1,6 +1,9 @@
 package controller.Product;
 
-import model.Product;
+import dto.OrderDetails;
+import dto.Product;
+
+import java.util.List;
 
 public interface ProductService {
     boolean addProduct(Product product);
@@ -8,4 +11,5 @@ public interface ProductService {
     boolean updateProduct(Product product);
     Product serachProduct(String name);
     String getLastProID();
+    boolean updateStock(List<OrderDetails> orderDetails);
 }

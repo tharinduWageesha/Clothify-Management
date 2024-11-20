@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="375.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportController">
+   <children>
+      <BorderPane layoutX="-4.0" prefHeight="86.0" prefWidth="748.0" style="-fx-background-color: #2f6496;">
+         <center>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="View Order Reports" textAlignment="CENTER" wrappingWidth="309.22235107421875" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Century" size="28.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <AreaChart fx:id="chrtDaily" layoutX="25.0" layoutY="130.0" prefHeight="214.0" prefWidth="229.0" title="Daily Report">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </AreaChart>
+      <AreaChart fx:id="chrtWeekly" layoutX="255.0" layoutY="130.0" prefHeight="214.0" prefWidth="229.0" title="Weekly Report">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis prefHeight="182.0" prefWidth="28.0" side="LEFT" />
+         </yAxis>
+      </AreaChart>
+      <AreaChart fx:id="chrtMonthly" layoutX="498.0" layoutY="130.0" prefHeight="214.0" prefWidth="229.0" title="Monthly Report">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </AreaChart>
+   </children>
+</AnchorPane>
